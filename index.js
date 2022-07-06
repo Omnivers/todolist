@@ -30,10 +30,11 @@ let randomStatus="To do";
 let randomPriority=0;
 let min=0;
 let max=randomValue.length-1;
+
 //Event listener 
 domRandom.addEventListener("click", randomTask);
 
-
+//Class to simplify our tasks creation
 class tasks{
   constructor(value,status,priority){
     this.value=value;
@@ -44,10 +45,11 @@ class tasks{
 
 // functions for random task
 function randomTask(){
-  domInformation.style.display='none';
+  domInformation.style.display='none';//To delete the no task saved notification
   randomInteger();
   addToDomRandom();
 }
+
 function addToDomRandom(){
   let generatedTask= new tasks(randomValue[randomnum],randomStatus,randomPriority);
     domContent.innerHTML = domContent.innerHTML+`   
