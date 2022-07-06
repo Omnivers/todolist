@@ -1,0 +1,46 @@
+@font-face {
+    font-family: robotoBold;
+    src: url(./police/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: robotoLight;
+    src: url(./police/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: roboto;
+    src: url(./police/Roboto-Black.ttf);
+}
+.title{
+    font-family: robotoBold;
+    margin: 50px;
+    font-size: 80px;
+}
+.addTask{
+    font-size: 20px;
+    padding: 20px;
+    margin: 10px;
+    width: 30%;
+    background-color: orangered;
+    color: white;
+    font-family: robotoLight;
+    border: none;
+    border-radius: 10px;
+    box-shadow: black 20px 10px 50px;
+    cursor: pointer;
+}
+.addTask:hover{
+    font-family: robotoBold;
+    transform: scale(1.1);
+}
+.btn{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 150px;
+}
+.filter{
+    font-family: robotoLight;
+    float: right;
+    font-size: 25px;
+    margin-right: 10px;
+}
