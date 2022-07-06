@@ -16,20 +16,19 @@
     font-size: 80px;
 }
 .addTask{
-    font-size: 20px;
+    font-size: 30px;
     padding: 20px;
     margin: 10px;
     width: 30%;
     background-color: orangered;
     color: white;
-    font-family: robotoLight;
+    font-family: robotoBold;
     border: none;
     border-radius: 10px;
     box-shadow: black 20px 10px 50px;
     cursor: pointer;
 }
 .addTask:hover{
-    font-family: robotoBold;
     transform: scale(1.1);
 }
 .btn{
@@ -44,26 +43,35 @@
     display: flex;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.267);
-
-
+    color: white;
 }
-main{
+.content{
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 20px;
+    font-family: roboto;
+}
+.head{
     background-color: rgb(0,0,0,0.1);
 }
 .headers{
+    width: 15%;
     margin:50px;
     font-family: robotoLight;
     font-size: 30px;
     color: grey;
+}
+.DOM{
+    color:rgb(0,0,0,0.8);
 }
 .filter{
     font-size: 25px;
     margin-right: 0px;
     font-family: robotoLight;
     margin:0px 0px 30px 30px;
-
+}
+.edit{
+    cursor: pointer;
 }
 .information{
     font-family: roboto;
@@ -72,4 +80,7 @@ main{
     padding: 100px;
     font-size: 40px;
     color:grey;
+}
+.todo{
+    color: red;
 }
