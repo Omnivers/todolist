@@ -10,6 +10,21 @@
     font-family: roboto;
     src: url(./police/Roboto-Black.ttf);
 }
+::-webkit-scrollbar {
+    width: 1em;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: rgb(0,0,0,0.2);
+    border-radius: 10px;
+    margin-block: .1 em;
+  }
+  ::-webkit-scrollbar-thumb {
+    background:orangered;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background:black;
+  }
 .title{
     font-family: robotoBold;
     margin: 50px;
