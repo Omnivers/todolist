@@ -38,9 +38,38 @@
     align-items: center;
     margin-bottom: 150px;
 }
-.filter{
+.break{
+    margin: 50px;
+    height: 1px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.267);
+
+
+}
+main{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(0,0,0,0.1);
+}
+.headers{
+    margin:50px;
     font-family: robotoLight;
-    float: right;
+    font-size: 30px;
+    color: grey;
+}
+.filter{
     font-size: 25px;
-    margin-right: 10px;
+    margin-right: 0px;
+    font-family: robotoLight;
+    margin:0px 0px 30px 30px;
+
+}
+.information{
+    font-family: roboto;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    font-size: 40px;
+    color:grey;
 }

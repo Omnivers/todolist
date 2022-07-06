@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-    <h1 class="title">To do list</h1>
+    <h1 class="title"></h1>
     <div class="btn">
         <button class="addTask">
             Add a new task
@@ -20,25 +20,27 @@
             Add a random task
         </button>
     </div>
+    <span class="break">.</span>
+    <label for="filter" class="filter">Filter </label>
     <select name="filter" class="filter" id="filter">
         <option value="All">All</option>
         <option value="To do">To do</option>
         <option value="Doing">Doing</option>
         <option value="Done">Done</option>
     </select>
-    <label for="filter" class="filter label">Filter </label>
 </header>
-<!-- <main>
-    <div class="taches">
-
+<main>
+    <div class="headers" id="tasks">
+        <h1>Tasks</h1>
     </div>
-    <div class="statut">
-
+    <div class="headers" id="statut">
+        <h1>Statut</h1>
     </div>
-    <div class="priorite">
-
+    <div class="headers" id="priority">
+        <h1>Priority</h1>
     </div>
-</main> -->
+</main>
+<span class="information">There's no task please add a new or a random task.</span>
 <script src="./index.js"></script>
 </body>
 </html>
