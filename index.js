@@ -22,6 +22,13 @@ domEdit=document.getElementById("edit");
 domRandom=document.getElementById("random");
 domContent=document.querySelector(".random");
 domInformation=document.querySelector(".information");
+domNew= document.getElementById("new")
+domClose=document.querySelector(".bi-x-square")
+domAddtion=document.querySelector(".addtionTask")
+domSubmit= document.querySelector(".submit")
+domNewText= document.getElementById("text")
+domNewStatus= document.getElementById("status")
+domNewPriority= document.getElementById("number")
 
 
 // Variables de Tasks Values, Priority
@@ -33,6 +40,11 @@ let max=randomValue.length-1;
 
 //Event listener 
 domRandom.addEventListener("click", randomTask);
+domNew.addEventListener("click", newTask)
+domClose.addEventListener("click", closeTask)
+domSubmit.addEventListener("click", addNewTask)
+
+
 
 //Class to simplify our tasks creation
 class tasks{
@@ -72,3 +84,28 @@ function addToDomRandom(){
 function randomInteger() {
     randomnum=Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+
+//add new task 
+
+function newTask() {
+    domAddtion.style.display = "block"
+}
+function closeTask() {
+    domAddtion.style.display = "none"
+     
+}
+function addNewTask() {
+   let value= domNewText.value 
+   let status=domNewStatus.value
+   let priority=domNewPriority.value
+   theNewTask=new tasks(value,status,priority)
+   console.log(theNewTask)
+
+  
+}
+
+
+
+
