@@ -32,39 +32,47 @@
             <option value="Done">Done</option>
         </select>
     </header>
-    <section class="addtionTask">
 
-        <h1>Add a new task</h1>
-    
-        <form action="">
-            <label for="nome"> nome de la tach :</label>
-            <input type="text" id="text" name="text" value="" placeholder="Faire une mauqutte..."> <br>
-            
-            <label for="text"> Priorité :</label>
-            
-            <select name="text" id="number">
+    <section class="addtionTask">
+        <div class="titleNew" >
+            <Span></Span>
+            <h1>Add a new task</h1>
+            <i class="bi bi-x-square"></i>
+       </div>
+        <section class="formule"> 
+            <div class="arrange">
+            <form action="">
+                <label for="nome"> Name of task :</label>
+                <input class="place " type="text" id="text" name="text" value="" placeholder="Exemple : Faire une maquette..." size="40"> 
+            </div>
+        <div class="arrange">
+            <label for="text"> Priority  :  </label>
+           
+            <select class="place" name="text" id="number">
                 <option value="0"> 0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-            </select><br>
+            </select> 
+        </div>
+        <div class="arrange">
+                <label for="text"> Status  :</label> 
+                <select class="place"  name="text" id="number">
+                    <option value="">to do</option>
+                    <option value=""> Doing</option>
+                    <option value=""> Done</option>
+                </select>
+        </div>
+        </section>
+        <div class="caseSubmit"> 
+        <button class="submit">Submit</button>
+        </div>
+        
+    </form>
     
-            <label for="text"> Statut  :</label> 
-            
-            <select name="text" id="number">
-                <option value="">to do</option>
-                <option value=""> Doing</option>
-                <option value=""> Done</option>
-               
-            </select>
-            <br>
-    
-        <button>submit</button>
-        </form>
-    
-    </section>
+</section>
     
     <main>
         <section class="content head">

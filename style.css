@@ -100,7 +100,63 @@
 .todo{
     color: red;
 }
-
 .addtionTask{
     display: none;
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    box-shadow: black 20px 10px 50px;
+    z-index: 10;
+    background: white;
+    width: 80%;
 }
+.formule{
+    padding: 60px;
+}
+.titleNew{
+    text-align: center;
+    background-color: rgb(61, 127, 220);
+    color: aliceblue;
+    font-size: 40px;
+    padding: 50px;
+    font-family: robotoBold;
+    display: flex;
+    justify-content: space-between;
+
+}
+.bi-x-square:hover{
+     cursor: pointer;
+     transform: scale(1.5);
+}
+.arrange{
+    font-size: 40px;
+    margin: 40px;
+    font-family: robotoLight;
+}
+.place{
+    font-size: 30px;
+    margin-left: 30px;
+    font-family: robotoLight;
+}
+.submit{
+    padding: 40px;
+    margin: 35PX;
+    font-size: 30px;
+    background-color:rgb(61, 127, 220) ;
+    color: aliceblue;
+    border: none;
+}
+.submit:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.caseSubmit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+
+
