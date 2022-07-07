@@ -5,15 +5,19 @@ domPriority=document.getElementById("priority");
 domRandom=document.getElementById("random");
 domContent=document.querySelector(".random");
 domInformation=document.querySelector(".information");
-domNew= document.getElementById("new")
-domClose=document.querySelector(".bi-x-square")
+domNew= document.getElementById("new");
+domClose=document.querySelector(".bi-x-square");
 domCloseTwo=document.querySelector(".iconClose");
-domAddtion=document.querySelector(".addtionTask")
-domSubmit= document.querySelector(".submit")
-domNewText= document.getElementById("text")
-domNewStatus= document.getElementById("status")
-domNewPriority= document.getElementById("number")
+domAddtion=document.querySelector(".addtionTask");
+domSubmit= document.querySelector(".submit");
+domNewText= document.getElementById("text");
+domNewStatus= document.getElementById("status");
+domNewPriority= document.getElementById("number");
 domEditer=document.querySelector(".editTask");
+domEditedText=document.getElementById('editedText');
+domEditedStatus=document.getElementById('editedStatus');
+domEditedPriority=document.getElementById('editedPriority');
+domSubmitEdit= document.getElementById('edit');
 
 // Variables de Tasks Values, Priority
 let randomValue=["Faire un carré avec la main gauche et un rond avec la main droite","Faire de la méditation","Éternuer les yeux ouverts"];
@@ -24,10 +28,11 @@ let max=randomValue.length-1;
 
 //Event listener 
 domRandom.addEventListener("click", randomTask);
-domNew.addEventListener("click", newTask)
-domClose.addEventListener("click", closeTask)
+domNew.addEventListener("click", newTask);
+domClose.addEventListener("click", closeTask);
 domCloseTwo.addEventListener("click", closeTask);
 domSubmit.addEventListener("click", addNewTask);
+domSubmitEdit.addEventListener("click", editedTask);
 
 //Class to simplify our tasks creation
 class tasks{
@@ -36,7 +41,7 @@ class tasks{
     this.status=status;
     this.priority=priority;
   }
-}
+};
 
 // functions for random task
 function randomTask(){
@@ -44,26 +49,40 @@ function randomTask(){
   randomInteger();
   addToDomRandom();
 }
+let generatedTask=[""];
+let index=0;
+let unknownID;
 
 //Functions to add to DOM the tasks
 function addToDomRandom(){
-  let generatedTask= new tasks(randomValue[randomnum],randomStatus,randomPriority);
+    generatedTask[index]= new tasks(randomValue[randomnum],randomStatus,randomPriority);
     domContent.innerHTML = domContent.innerHTML+`   
       <div class="headers DOM" id="tasks"> 
-          <p>${generatedTask.value}</p>
+          <p>${generatedTask[index].value}</p>
       </div>
       <div class="headers DOM todo" id="statut"> 
-          <span>${generatedTask.status}</span>
+          <span>${generatedTask[index].status}</span>
       </div>
       <div class="headers DOM" id="priority">
-          <span>${generatedTask.priority}</span>
+          <span>${generatedTask[index].priority}</span>
       </div>
       <div class="headers DOM">
-          <i id="edit" class="edit bi bi-pencil-square"></i>
+          <i id="edit${index}" class="edit bi bi-pencil-square"></i>
       </div>`
-      domEdit=document.querySelector(".edit");
-      domEdit.addEventListener("click", editTask);
+      domEdit=document.querySelectorAll(".edit");
+      for(let i=0;i<domEdit.length;i++){
+          domEdit[i].addEventListener("click", editTask);
+          domEdit[i].addEventListener("click", function(){
+            unknownID=domEdit[i].id;
+            unknownID=unknownID.split("t");
+            unknownID=unknownID[1];
+            domEditedText.placeholder=generatedTask[unknownID].value;
+            domEditedPriority.value=generatedTask[unknownID].priority;
+          });
+      }
+      index++;
 }
+
 function addToDom(){
   domInformation.style.display='none';
   let value= domNewText.value ;
@@ -105,10 +124,32 @@ function addNewTask(e) {
     addToDom();
     closeTask();
 }
-
 // Edit tasks
 function editTask(){
-  domEditer.style.display='block';
+  domEditer.style.display='block';  
+}
+function editedTask(){
+  domEditer.style.display='none';
+    generatedTask[unknownID].value=domEditedText.value;
+    generatedTask[unknownID].status=domEditedStatus.value;
+    generatedTask[unknownID].priority=domEditedPriority.value;
+  domContent.innerHTML=``;
+    for(let i=0;i<index;i++){
+      domContent.innerHTML = domContent.innerHTML+`
+      <div class="headers DOM" id="tasks"> 
+          <p>${generatedTask[i].value}</p>
+      </div>
+      <div class="headers DOM todo" id="statut"> 
+          <span>${generatedTask[i].status}</span>
+      </div>
+      <div class="headers DOM" id="priority">
+          <span>${generatedTask[i].priority}</span>
+      </div>
+      <div class="headers DOM">
+          <i id="edit${i}" class="edit bi bi-pencil-square"></i>
+      </div>`
+      
+    }
 }
 
 //Type Writting for the title just for style

@@ -11,7 +11,7 @@
     src: url(./police/Roboto-Black.ttf);
 }
 ::-webkit-scrollbar {
-    width: 1em;
+    width: 0.6em;
   }
   ::-webkit-scrollbar-track {
     background-color: rgb(0,0,0,0.2);

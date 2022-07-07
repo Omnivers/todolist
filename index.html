@@ -78,11 +78,11 @@
         <section class="formule"> 
             <div class="arrange">
                 <label for="nome"> Name of task :</label>
-                <input class="place " id="text" value="" placeholder="Exemple : Faire une maquette..." size="40"> 
+                <input class="place " id="editedText" value="" placeholder="Exemple : Faire une maquette..." size="40"> 
             </div>
             <div class="arrange">
                 <label for="text"> Priority  :  </label>
-                <select class="place" id="number">
+                <select class="place" id="editedPriority">
                     <option value="0"> 0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -93,7 +93,7 @@
             </div>
             <div class="arrange">
                 <label for="text"> Status  :</label> 
-                <select class="place"  id="status">
+                <select class="place"  id="editedStatus">
                     <option value="to do">to do</option>
                     <option value="Doing"> Doing</option>
                     <option value="Done"> Done</option>
@@ -101,7 +101,7 @@
             </div>
         </section>
         <div class="caseSubmit remove"> 
-            <button class="submit two">Edit</button>
+            <button class="submit two" id="edit">Edit</button>
             <button class="submit three">Remove</button>
         </div>
 </section>
