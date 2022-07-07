@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="discription" content="">
@@ -7,55 +8,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <title>toDoslist</title>
 </head>
+
 <body>
-
-
-
-<section class="addtionTask">
-
-    <h1>Add a new task</h1>
-
-    <form action="">
-        <label for="nome"> nome de la tach :</label>
-        <input type="text" id="text" name="text" value="" placeholder="Faire une mauqutte..."> <br>
-        
-        <label for="text"> Priorité :</label>
-        
-        <select name="text" id="number">
-            <option value="0"> 0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select><br>
-
-        <label for="text"> Statut  :</label> 
-        
-        <select name="text" id="number">
-            <option value="">to do</option>
-            <option value=""> Doing</option>
-            <option value=""> Done</option>
-           
+    <header>
+        <h1 class="title"></h1>
+        <div class="btn">
+            <button class="addTask" id="new">
+                Add a new task
+            </button>
+            <button class="addTask" id="random">
+                Add a random task
+            </button>
+        </div>
+        <span class="break">.</span>
+        <label for="filter" class="filter">Filter </label>
+        <select name="filter" class="filter" id="filter">
+            <option value="All">All</option>
+            <option value="To do">To do</option>
+            <option value="Doing">Doing</option>
+            <option value="Done">Done</option>
         </select>
-        <br>
+    </header>
+    <section class="addtionTask">
 
-    <button>submit</button>
-    </form>
+        <h1>Add a new task</h1>
+    
+        <form action="">
+            <label for="nome"> nome de la tach :</label>
+            <input type="text" id="text" name="text" value="" placeholder="Faire une mauqutte..."> <br>
+            
+            <label for="text"> Priorité :</label>
+            
+            <select name="text" id="number">
+                <option value="0"> 0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+    
+            <label for="text"> Statut  :</label> 
+            
+            <select name="text" id="number">
+                <option value="">to do</option>
+                <option value=""> Doing</option>
+                <option value=""> Done</option>
+               
+            </select>
+            <br>
+    
+        <button>submit</button>
+        </form>
+    
+    </section>
+    
+    <main>
+        <section class="content head">
+            <div class="headers">
+                <h1>Tasks</h1>
+            </div>
+            <div class="headers">
+                <h1>Statut</h1>
+            </div>
+            <div class="headers">
+                <h1>Priority</h1>
+            </div>
+            <div class="headers">
+                <h1>Edit</h1>
+            </div>
+        </section> 
+            <span class="information">There's no task please add a new or a random task.</span>
+        <section class="content random">
+        </section>
+    </main>
 
-</section>
+    <script src="./index.js"></script>
 
-
-
-
-
-
-
-
-
-
-<script src="./index.js"></script>
 </body>
 </html>
