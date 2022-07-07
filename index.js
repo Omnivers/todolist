@@ -97,6 +97,7 @@ function closeTask() {
      
 }
 function addNewTask() {
+   
    let value= domNewText.value 
    let status=domNewStatus.value
    let priority=domNewPriority.value
