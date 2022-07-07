@@ -102,6 +102,7 @@ function addToDom(){
     <div class="headers DOM edit" id="edit">
         <i class="bi bi-pencil-square"></i>
     </div>`
+
     domEdit=document.querySelector(".edit");
     domEdit.addEventListener("click", editTask);
 }
@@ -119,16 +120,11 @@ function closeTask() {
     domAddtion.style.display = "none";  
     domEditer.style.display = "none";
 }
-function addNewTask() {
-   
-   let value= domNewText.value 
-   let status=domNewStatus.value
-   let priority=domNewPriority.value
-   theNewTask=new tasks(value,status,priority)
-   console.log(theNewTask)
-
-  
+function addNewTask() { 
+  addToDom();
+  closeTask();
 }
+
 // Edit tasks
 function editTask(){
   domEditer.style.display='block';  
