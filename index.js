@@ -119,10 +119,15 @@ function closeTask() {
     domAddtion.style.display = "none";  
     domEditer.style.display = "none";
 }
-function addNewTask(e) {
-    e.preventDefault();
-    addToDom();
-    closeTask();
+function addNewTask() {
+   
+   let value= domNewText.value 
+   let status=domNewStatus.value
+   let priority=domNewPriority.value
+   theNewTask=new tasks(value,status,priority)
+   console.log(theNewTask)
+
+  
 }
 // Edit tasks
 function editTask(){
