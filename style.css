@@ -86,8 +86,9 @@
     font-family: robotoLight;
     margin:0px 0px 30px 30px;
 }
-.edit{
+.edit:hover{
     cursor: pointer;
+    color: orangered;
 }
 .information{
     font-family: roboto;
