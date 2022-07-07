@@ -123,7 +123,6 @@
     font-family: robotoBold;
     display: flex;
     justify-content: space-between;
-
 }
 .bi-x-square:hover{
      cursor: pointer;
@@ -140,12 +139,38 @@
     font-family: robotoLight;
 }
 .submit{
+    display: flex;
+    justify-content: center;
     padding: 40px;
     margin: 35PX;
     font-size: 30px;
     background-color:rgb(61, 127, 220) ;
     color: aliceblue;
     border: none;
+    width: 10%;
+}
+.editTask{
+    display: none;
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    box-shadow: black 20px 10px 50px;
+    z-index: 10;
+    background: white;
+    width: 80%;
+}
+.one{
+    background-color: green;
+}
+.two{
+    background-color: green;
+    display: flex;
+    justify-content: center;
+}
+.three{
+    display: flex;
+    justify-content: center;
+    background-color: red;
 }
 .submit:hover {
     cursor: pointer;

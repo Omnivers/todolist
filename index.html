@@ -33,7 +33,7 @@
         </select>
     </header>
 
-    <section class="addtionTask">
+    <section class="addtionTask"> <!-- FOR ADD -->
             <div class="titleNew" >
                 <Span></Span>
                 <h1>Add a new task</h1>
@@ -68,6 +68,43 @@
             <button class="submit">Submit</button>
             </div>
     </section>
+
+    <section class="editTask"> <!-- FOR EDIT -->
+        <div class="titleNew one" >
+            <Span></Span>
+            <h1>Edit a task</h1>
+            <i class="bi bi-x-square iconClose"></i>
+        </div>
+        <section class="formule"> 
+            <div class="arrange">
+                <label for="nome"> Name of task :</label>
+                <input class="place " id="text" value="" placeholder="Exemple : Faire une maquette..." size="40"> 
+            </div>
+            <div class="arrange">
+                <label for="text"> Priority  :  </label>
+                <select class="place" id="number">
+                    <option value="0"> 0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select> 
+            </div>
+            <div class="arrange">
+                <label for="text"> Status  :</label> 
+                <select class="place"  id="status">
+                    <option value="to do">to do</option>
+                    <option value="Doing"> Doing</option>
+                    <option value="Done"> Done</option>
+                </select>
+            </div>
+        </section>
+        <div class="caseSubmit remove"> 
+            <button class="submit two">Edit</button>
+            <button class="submit three">Remove</button>
+        </div>
+</section>
     <main>
         <section class="content head">
             <div class="headers">
