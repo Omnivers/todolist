@@ -25,7 +25,7 @@
         </div>
         <span class="break">.</span>
         <label for="filter" class="filter">Filter </label>
-        <select name="filter" class="filter" id="filter">
+        <select name="filter" class="filter" id="filter"><!--onchange="Filter()"-->
             <option value="All">All</option>
             <option value="To do">To do</option>
             <option value="Doing">Doing</option>
@@ -58,7 +58,7 @@
                 <div class="arrange">
                     <label for="text"> Status  :</label> 
                     <select class="place"  id="status">
-                        <option value="to do">to do</option>
+                        <option value="To do">To do</option>
                         <option value="Doing"> Doing</option>
                         <option value="Done"> Done</option>
                     </select>
@@ -94,7 +94,7 @@
             <div class="arrange">
                 <label for="text"> Status  :</label> 
                 <select class="place"  id="editedStatus">
-                    <option value="to do">to do</option>
+                    <option value="To do">To do</option>
                     <option value="Doing"> Doing</option>
                     <option value="Done"> Done</option>
                 </select>
@@ -102,7 +102,7 @@
         </section>
         <div class="caseSubmit remove"> 
             <button class="submit two" id="edit">Edit</button>
-            <button class="submit three">Remove</button>
+            <button class="submit three" id="remove">Remove</button>
         </div>
 </section>
     <main>

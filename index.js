@@ -18,6 +18,8 @@ domEditedText=document.getElementById('editedText');
 domEditedStatus=document.getElementById('editedStatus');
 domEditedPriority=document.getElementById('editedPriority');
 domSubmitEdit= document.getElementById('edit');
+domRemove= document.getElementById("remove");
+domFilter= document.getElementById("filter");
 
 // Variables de Tasks Values, Priority
 let randomValue=["Faire un carré avec la main gauche et un rond avec la main droite","Faire de la méditation","Éternuer les yeux ouverts"];
@@ -33,6 +35,7 @@ domClose.addEventListener("click", closeTask);
 domCloseTwo.addEventListener("click", closeTask);
 domSubmit.addEventListener("click", addNewTask);
 domSubmitEdit.addEventListener("click", editedTask);
+domRemove.addEventListener("click", remove);
 
 //Class to simplify our tasks creation
 class tasks{
@@ -88,23 +91,32 @@ function addToDom(){
   let value= domNewText.value ;
   let status=domNewStatus.value;
   let priority=domNewPriority.value;
-  let theNewTask=new tasks(value,status,priority);
+  generatedTask[index]= new tasks(value,status,priority);
   domContent.innerHTML = domContent.innerHTML+`   
     <div class="headers DOM" id="tasks"> 
-        <p>${theNewTask.value}</p>
+        <p>${generatedTask[index].value}</p>
     </div>
     <div class="headers DOM todo" id="statut"> 
-        <span>${theNewTask.status}</span>
+        <span>${generatedTask[index].status}</span>
     </div>
     <div class="headers DOM" id="priority">
-        <span>${theNewTask.priority}</span>
+        <span>${generatedTask[index].priority}</span>
     </div>
-    <div class="headers DOM edit" id="edit">
-        <i class="bi bi-pencil-square"></i>
+    <div class="headers DOM">
+        <i id="edit${index}" class="edit bi bi-pencil-square"></i>
     </div>`
-
-    domEdit=document.querySelector(".edit");
-    domEdit.addEventListener("click", editTask);
+    domEdit=document.querySelectorAll(".edit");
+    for(let i=0;i<domEdit.length;i++){
+        domEdit[i].addEventListener("click", editTask);
+        domEdit[i].addEventListener("click", function(){
+          unknownID=domEdit[i].id;
+          unknownID=unknownID.split("t");
+          unknownID=unknownID[1];
+          domEditedText.placeholder=generatedTask[unknownID].value;
+          domEditedPriority.value=generatedTask[unknownID].priority;
+        });
+    }
+    index++;
 }
 
 // Random number generator
@@ -134,6 +146,40 @@ function editedTask(){
     generatedTask[unknownID].value=domEditedText.value;
     generatedTask[unknownID].status=domEditedStatus.value;
     generatedTask[unknownID].priority=domEditedPriority.value;
+    domContent.innerHTML=``;
+    for(let i=0;i<index;i++){
+      domContent.innerHTML = domContent.innerHTML+`
+      <div class="headers DOM" id="tasks"> 
+          <p>${generatedTask[i].value}</p>
+      </div>
+      <div class="headers DOM todo" id="statut"> 
+          <span>${generatedTask[i].status}</span>
+      </div>
+      <div class="headers DOM" id="priority">
+          <span>${generatedTask[i].priority}</span>
+      </div>
+      <div class="headers DOM">
+          <i id="edit${i}" class="edit bi bi-pencil-square"></i>
+      </div>`
+      domEdit=document.querySelectorAll(".edit");
+      for(let i=0;i<domEdit.length;i++){
+          domEdit[i].addEventListener("click", editTask);
+          domEdit[i].addEventListener("click", function(){
+            unknownID=domEdit[i].id;
+            unknownID=unknownID.split("t");
+            unknownID=unknownID[1];
+            domEditedText.placeholder=generatedTask[unknownID].value;
+            domEditedPriority.value=generatedTask[unknownID].priority;
+          });
+      }
+    }
+}
+
+// Remove task
+function remove(){
+  domEditer.style.display='none';
+  generatedTask.splice(unknownID,unknownID);
+  index--;
   domContent.innerHTML=``;
     for(let i=0;i<index;i++){
       domContent.innerHTML = domContent.innerHTML+`
@@ -149,9 +195,39 @@ function editedTask(){
       <div class="headers DOM">
           <i id="edit${i}" class="edit bi bi-pencil-square"></i>
       </div>`
-      
+      domEdit=document.querySelectorAll(".edit");
+      for(let i=0;i<domEdit.length;i++){
+          domEdit[i].addEventListener("click", editTask);
+          domEdit[i].addEventListener("click", function(){
+            unknownID=domEdit[i].id;
+            unknownID=unknownID.split("t");
+            unknownID=unknownID[1];
+            domEditedText.placeholder=generatedTask[unknownID].value;
+            domEditedPriority.value=generatedTask[unknownID].priority;
+          });
+      }
+    }
+    if(index===0){
+      domInformation.style.display='block';
     }
 }
+// // Filter the DOM
+// let done=[];
+// let todo=[];
+// let doing=[];
+// function Filter(){
+//     for(let i=0;i<generatedTask.length;i++){
+//       if(domFilter ==='Done' && generatedTask[i].status==='Done'){
+//         done.push(generatedTask[i]);
+//       }
+//       else if(domFilter ==='To do' && generatedTask[i].status==='To do'){
+//         todo.push(generatedTask[i]);
+//       }
+//       else if(domFilter ==='Doing' && generatedTask[i].status==='Doing'){
+//         doing.push(generatedTask[i]);
+//       }  
+//     }
+// }
 
 //Type Writting for the title just for style
 const txtAnim=document.querySelector('.title');

@@ -54,6 +54,7 @@
     margin-bottom: 150px;
 }
 .break{
+    content-visibility: hidden;
     margin: 50px;
     height: 1px;
     display: flex;
