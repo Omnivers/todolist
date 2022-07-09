@@ -33,9 +33,6 @@ domFilter= document.getElementById("filter");
   let generatedTask=[""];
   let index=0;
   let unknownID; //Pour identifier les IDS qu'on veut edit en event listenner 
-  //Variables pour filtrer nos tasks
-
-
 
 //Events listeners
 domRandom.addEventListener("click", randomTask);
@@ -121,13 +118,21 @@ function remove(){
       domInformation.style.display='block';
     }
 }
-// // Filter the DOM
+
+// Filter the DOM
 function Filter(){
   let done=[];
   let todo=[];
   let doing=[];
+  let All=[];
   let filtredGeneratedTask= generatedTask.filter(function(filter){
-    if(domFilter.value ==="Done" && filter.status==="Done"){
+    if(domFilter.value === "All"){
+      domContent.innerHTML=``
+      for(let i=0;i<generatedTask.length;i++){
+        domInnerHtmlEdited();
+      } 
+    }
+    else if(domFilter.value ==="Done" && filter.status==="Done"){
       domContent.innerHTML=``
       done.push(filter);
       for(let i=0;i<done.length;i++){
@@ -217,10 +222,10 @@ function Filter(){
       }
     }
     }
-  
   })
 }
 
+//Function for innerHTML
 function domInnerHtml(){
   domContent.innerHTML = domContent.innerHTML+`   
   <div class="headers DOM" id="tasks"> 
