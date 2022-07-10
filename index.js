@@ -63,7 +63,7 @@ function randomTask(){
 //Functions to add to DOM the tasks
 function addToDomRandom(){
     generatedTask[index]= new tasks(randomValue[randomnum],randomStatus,randomPriority);
-    domInnerHtml();
+    domInnerHtml(generatedTask,index);
     index++;
 }
 
@@ -73,7 +73,7 @@ function addToDom(){
   let status=domNewStatus.value;
   let priority=domNewPriority.value;
   generatedTask[index]= new tasks(value,status,priority)
-  domInnerHtml();
+  domInnerHtml(generatedTask,index);
   index++;
 }
 
@@ -124,7 +124,6 @@ function Filter(){
   let done=[];
   let todo=[];
   let doing=[];
-  let All=[];
   let filtredGeneratedTask= generatedTask.filter(function(filter){
     if(domFilter.value === "All"){
       domContent.innerHTML=``
@@ -136,106 +135,37 @@ function Filter(){
       domContent.innerHTML=``
       done.push(filter);
       for(let i=0;i<done.length;i++){
-      domContent.innerHTML = domContent.innerHTML+`   
-      <div class="headers DOM" id="tasks"> 
-          <p>${done[i].value}</p>
-      </div>
-      <div class="headers DOM todo" id="statut"> 
-          <span>${done[i].status}</span>
-      </div>
-      <div class="headers DOM" id="priority">
-          <span>${done[i].priority}</span>
-      </div>
-      <div class="headers DOM">
-          <i id="edit${i}" class="edit bi bi-pencil-square"></i>
-      </div>`
-      domEdit=document.querySelectorAll(".edit");
-      for(let i=0;i<domEdit.length;i++){
-          domEdit[i].addEventListener("click", editTask);
-          domEdit[i].addEventListener("click", function(){
-            unknownID=domEdit[i].id;
-            unknownID=unknownID.split("t");
-            unknownID=unknownID[1];
-            domEditedText.placeholder=generatedTask[unknownID].value;
-            domEditedPriority.value=generatedTask[unknownID].priority;
-          });
+        domInnerHtml(done,i)
       }
-    }
     }
     else if(domFilter.value ==="To do" && filter.status ==="To do") {
       domContent.innerHTML=``
       todo.push(filter);
       for(let i=0;i<todo.length;i++){
-        domContent.innerHTML = domContent.innerHTML+`    
-      <div class="headers DOM" id="tasks"> 
-          <p>${todo[i].value}</p>
-      </div>
-      <div class="headers DOM todo" id="statut"> 
-          <span>${todo[i].status}</span>
-      </div>
-      <div class="headers DOM" id="priority">
-          <span>${todo[i].priority}</span>
-      </div>
-      <div class="headers DOM">
-          <i id="edit${i}" class="edit bi bi-pencil-square"></i>
-      </div>`
-      domEdit=document.querySelectorAll(".edit");
-      for(let i=0;i<domEdit.length;i++){
-          domEdit[i].addEventListener("click", editTask);
-          domEdit[i].addEventListener("click", function(){
-            unknownID=domEdit[i].id;
-            unknownID=unknownID.split("t");
-            unknownID=unknownID[1];
-            domEditedText.placeholder=generatedTask[unknownID].value;
-            domEditedPriority.value=generatedTask[unknownID].priority;
-          });
+        domInnerHtml(todo,i)
       }
-    }
     }
     else if(domFilter.value ==="Doing" && filter.status === "Doing"){
       domContent.innerHTML=``
       doing.push(filter);
       for(let i=0;i<doing.length;i++){
-        domContent.innerHTML = domContent.innerHTML+`    
-      <div class="headers DOM" id="tasks"> 
-          <p>${doing[i].value}</p>
-      </div>
-      <div class="headers DOM todo" id="statut"> 
-          <span>${doing[i].status}</span>
-      </div>
-      <div class="headers DOM" id="priority">
-          <span>${doing[i].priority}</span>
-      </div>
-      <div class="headers DOM">
-          <i id="edit${i}" class="edit bi bi-pencil-square"></i>
-      </div>`
-      domEdit=document.querySelectorAll(".edit");
-      for(let i=0;i<domEdit.length;i++){
-          domEdit[i].addEventListener("click", editTask);
-          domEdit[i].addEventListener("click", function(){
-            unknownID=domEdit[i].id;
-            unknownID=unknownID.split("t");
-            unknownID=unknownID[1];
-            domEditedText.placeholder=generatedTask[unknownID].value;
-            domEditedPriority.value=generatedTask[unknownID].priority;
-          });
+        domInnerHtml(doing,i)
       }
-    }
     }
   })
 }
 
 //Function for innerHTML
-function domInnerHtml(){
+function domInnerHtml(parameter,index){
   domContent.innerHTML = domContent.innerHTML+`   
   <div class="headers DOM" id="tasks"> 
-      <p>${generatedTask[index].value}</p>
+      <p>${parameter[index].value}</p>
   </div>
   <div class="headers DOM todo" id="statut"> 
-      <span>${generatedTask[index].status}</span>
+      <span>${parameter[index].status}</span>
   </div>
   <div class="headers DOM" id="priority">
-      <span>${generatedTask[index].priority}</span>
+      <span>${parameter[index].priority}</span>
   </div>
   <div class="headers DOM">
       <i id="edit${index}" class="edit bi bi-pencil-square"></i>
@@ -247,8 +177,8 @@ function domInnerHtml(){
         unknownID=domEdit[i].id;
         unknownID=unknownID.split("t");
         unknownID=unknownID[1];
-        domEditedText.placeholder=generatedTask[unknownID].value;
-        domEditedPriority.value=generatedTask[unknownID].priority;
+        domEditedText.placeholder=parameter[unknownID].value;
+        domEditedPriority.value=parameter[unknownID].priority;
       });
   }
 }
