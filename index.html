@@ -25,7 +25,7 @@
         </div>
         <span class="break">.</span>
         <label for="filter" class="filter">Filter </label>
-        <select name="filter" class="filter" id="filter" onchange="Filter()">
+        <select name="filter" class="filter cases" id="filter" onchange="Filter()">
             <option value="All">All</option>
             <option value="To do">To do</option>
             <option value="Doing">Doing</option>
@@ -41,11 +41,11 @@
             </div>
             <section class="formule"> 
                 <div class="arrange">
-                    <label for="nome"> Name of task :</label>
-                    <input class="place " id="text" value="" placeholder="Exemple : Faire une maquette..." size="40"> 
+                    <label for="nome" class="descrip"> Task :</label>
+                    <input class="place" id="text" value="" placeholder="Exemple : Faire une maquette..." size="40"> 
                 </div>
                 <div class="arrange">
-                    <label for="text"> Priority  :  </label>
+                    <label for="text" class="descrip"> Priority  :  </label>
                     <select class="place" id="number">
                         <option value="0"> 0</option>
                         <option value="1">1</option>
@@ -56,8 +56,8 @@
                     </select> 
                 </div>
                 <div class="arrange">
-                    <label for="text"> Status  :</label> 
-                    <select class="place"  id="status">
+                    <label for="text" class="descrip"> Status  :</label> 
+                    <select class="place"  id="status" class="descrip">
                         <option value="To do">To do</option>
                         <option value="Doing"> Doing</option>
                         <option value="Done"> Done</option>
@@ -78,7 +78,7 @@
         <section class="formule"> 
             <div class="arrange">
                 <label for="nome"> Name of task :</label>
-                <input class="place " id="editedText" value="" placeholder="Exemple : Faire une maquette..." size="40"> 
+                <input class="place " id="editedText" value="" placeholder="Exemple : Faire une maquette..." > 
             </div>
             <div class="arrange">
                 <label for="text"> Priority  :  </label>

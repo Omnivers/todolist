@@ -101,7 +101,12 @@ function editTask(){
 }
 function editedTask(){
   domEditer.style.display='none';
-    generatedTask[unknownID].value=domEditedText.value;
+    if(domEditedText.value === ''){
+      generatedTask[unknownID].value=generatedTask[unknownID].value;
+    }
+    else{
+      generatedTask[unknownID].value=domEditedText.value;
+    }
     generatedTask[unknownID].status=domEditedStatus.value;
     generatedTask[unknownID].priority=domEditedPriority.value;
     domContent.innerHTML=``;

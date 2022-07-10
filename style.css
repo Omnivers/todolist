@@ -65,7 +65,6 @@
 .content{
     display: flex;
     flex-wrap: wrap;
-    font-size: 20px;
     font-family: roboto;
 }
 .head{
@@ -84,8 +83,16 @@
 .filter{
     font-size: 25px;
     margin-right: 0px;
-    font-family: robotoLight;
+    font-family: roboto;
     margin:0px 0px 30px 30px;
+}
+.cases{
+    font-family: robotoLight;
+    cursor: pointer;
+}
+option{
+    background-color: black;
+    color: white;
 }
 .edit:hover{
     cursor: pointer;
@@ -125,6 +132,9 @@
     display: flex;
     justify-content: space-between;
 }
+.descrip{
+    color: rgba(0, 0, 0, 0.712);
+}
 .bi-x-square:hover{
      cursor: pointer;
      transform: scale(1.5);
@@ -138,6 +148,7 @@
     font-size: 30px;
     margin-left: 30px;
     font-family: robotoLight;
+    size: 100%;
 }
 .submit{
     display: flex;
